@@ -1,0 +1,55 @@
+{% extends '../layout.html' %}
+
+{% block head %}
+
+	<script src="/js/lib/jquery-2.0.3.js"></script>
+	<script src="/js/lib/oauth.js"></script>
+	<script src="/js/lib/sha1.js"></script>
+	<script src="/js/lib/underscore.js"></script>
+	<script src="/js/lib/backbone.js"></script>
+	<script src="/js/lib/swig.min.js"></script>
+
+	<script src="/init.js"></script>
+	<script src="/js/backbone/views/search.js"></script>
+	<script src="js/backbone/models/tweet.js"></script>
+	<script src="js/backbone/collections/tweets.js"></script>
+	<script src="js/backbone/views/tweet.js"></script>
+	<script src="/main.js"></script>
+
+
+{% endblock %}
+{% block content%}
+	{% block header %}
+	{% endblock %}
+	<section id="search">
+		<div class="search center">
+			<label for="">Twitter  Search : <input type="text" placeholder="search"></label>
+			<input type="submit" value="search"  id="btn-search" >
+ 		</div>
+		<div class="items">
+			{% raw %}
+			<script type="text/template" id="item-template">
+				<div class="usuario">
+					<figure class="avatar left">
+						<img src="{{avatar}}" alt="imagen">
+					</figure>
+						<div class="info">
+							<p class="name">{{name}}</p>
+							<p class="user">@{{user}}</p>
+					</div>
+				</div>	
+				<div class="tweet">
+					<p>{{tweet}}</p>
+				</div>
+				<div class="content-icon">
+					<div class="icon-undo left"></div>
+					<div class="icon-star right"></div>
+					<div class="icon-loop center"></div>
+				</div>
+			</script>
+			{% endraw %}
+ 		</div>
+	</section>
+{% endblock %}
+
+

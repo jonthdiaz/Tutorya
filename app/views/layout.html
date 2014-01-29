@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} Frontend {% endblock %}</title>
+
+	<!-- cargo archivos css -->
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/site.css">
+	{% block head %}
+	
+	{% endblock %}
+</head>
+
+<body>
+	<header>
+	</header>
+	<aside></aside>
+	<div class="wrapper">
+	{% block content %}
+	{% endblock %}	
+	</div>
+	<footer></footer>
+</body>
+</html>
