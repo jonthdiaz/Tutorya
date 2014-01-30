@@ -15,14 +15,12 @@ var twitterController=function  (server) {
 	});
 
 	server.post("/statuses/update",function  (req,res) {
-		debugger;
 		request({
 			uri:req.body.url,
 			method:"post"},function  (error,response,body) {
+				debugger;
 				res.send(body);
 			});
-		});
-		res.json({message:"ya estados en statuses update"});
 	});
 };
 module.exports=twitterController;

@@ -52,6 +52,7 @@ Tutorya.Views.Tweet=Backbone.View.extend({
 		OAuth.completeRequest(message, accessor);        
 		OAuth.SignatureMethod.sign(message, accessor);
 		url = url + "?" + OAuth.formEncode(message.parameters);
+		console.log(url);
 
 		$.ajax({
 			type:"post",
@@ -59,8 +60,11 @@ Tutorya.Views.Tweet=Backbone.View.extend({
 			dataType:"json",
 			data:{url:url},
 			success:function  (data) {
-				debugger;
-				console.log(data.message);
+				if(data.errors){
+					console.log(data.errors[0].message);
+				}else{
+					console.log(data.message);	
+				}
 			},error:function  (jqxhr, textStatus, error) {
 				var err = textStatus + ", " + error;
 				alert( "Request Failed: " + err );
